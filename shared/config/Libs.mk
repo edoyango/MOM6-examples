@@ -4,6 +4,7 @@ TARGET ?=
 CODEBASE ?=
 MAKEFILE_IN ?= ../config/Makefile.in
 CONFIGURE_AC ?=
+CONFIGURE_FLAGS ?=
 
 # Potentially configurabe, but not yet sure if we want to allow this.
 MAKEPATH = $(realpath $(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
@@ -47,7 +48,8 @@ $(BUILD)/Makefile: $(BUILD)/Makefile.in $(BUILD)/configure
 	  PATH="${PATH}:$(dir $(abspath $(MAKEDEP)))" \
 	  ./configure \
 	    --srcdir=$(abspath $(CODEBASE)) \
-	    --config-cache
+	    --config-cache \
+	    $(CONFIGURE_FLAGS)
 
 $(BUILD)/Makefile.in: $(MAKEFILE_IN) | $(BUILD)
 	cp $(MAKEFILE_IN) $(BUILD)/Makefile.in

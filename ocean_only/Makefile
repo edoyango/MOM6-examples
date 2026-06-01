@@ -84,6 +84,11 @@ FCFLAGS ?= -g -O2
 
 FCFLAGS += -I$(abspath $(FMS_BUILD))
 LDFLAGS += -L$(abspath $(FMS_BUILD))
+# yaml link flags (required when FMS is built with LIBYAML_ROOT set)
+ifdef LIBYAML_ROOT
+LDFLAGS += -L$(LIBYAML_ROOT)/lib
+LIBS    += -lyaml
+endif
 
 FMS_FCFLAGS ?= $(FCFLAGS)
 

@@ -40,7 +40,7 @@ BUILD ?= build
 MOM_MEMORY ?=
 
 # Dependencies
-FMS_CODEBASE ?= ../src/FMS2_gpu
+FMS_CODEBASE ?= ../src/FMS2
 FMS_BUILD ?= ../shared/fms/build
 
 # Autoconf configuration
